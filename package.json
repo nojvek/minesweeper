@@ -1,0 +1,33 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "Simple Minesweeper game",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nojvek/minesweeper.git"
+  },
+  "author": "nojvek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nojvek/minesweeper/issues"
+  },
+  "homepage": "https://github.com/nojvek/minesweeper#readme",
+  "dependencies": {
+    "panel": "^1.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-mixpanel": "^3.5.1",
+    "html-webpack-plugin": "^3.2.0",
+    "virtual-jade": "^0.10.0",
+    "virtual-jade-loader": "^1.0.0",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-dev-server-status-bar": "^1.1.0"
+  }
+}
