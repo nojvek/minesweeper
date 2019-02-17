@@ -1,0 +1,24 @@
+body
+  font-family monospace
+  font-size 20px
+
+.minesweeper-app
+  table.grid
+    border-collapse collapse
+
+    tr.head
+      background #eee
+
+    td
+      border 1px solid #ccc
+      padding 5px
+      width 30px
+      height 30px
+      vertical-align middle
+      text-align center
+
+      &.cell
+        cursor pointer
+
+      &.remaining, &.elapsed
+        column-span 2

@@ -1,10 +1,12 @@
 /* eslint-env node */
 const webpack = require(`webpack`);
 const HtmlWebpackPlugin = require(`html-webpack-plugin`);
+const MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
 
 const {
   HOT,
   NODE_ENV=`development`,
+  SOURCE_MAP=false,
 } = process.env;
 
 const stats = {
@@ -26,19 +28,39 @@ const webpackConfig = {
   module: {
     rules: [
       {
+        test: /\.styl$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: `css-hot-loader`,
+          },
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: `css-loader`,
+            options: {sourceMap: !!SOURCE_MAP},
+          },
+          {
+            loader: `stylus-loader`,
+            options: {sourceMap: !!SOURCE_MAP},
+          },
+        ],
+      },
+      {
         test: /\.jade$/,
-        exclude: /(node_modules|mixpanel-common)/,
+        exclude: /node_modules/,
         use: [
           {
             loader: `panel/hot/template-loader`,
             options: {hot: !!HOT},
           },
-          // BABEL_LOADER,
           {
             loader: `virtual-jade-loader`,
             options: {
               vdom: `snabbdom`,
               runtime: `var h = require("panel").h;`,
+              pretty: false,
             },
           },
         ],
@@ -46,25 +68,20 @@ const webpackConfig = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: `body`,
-      template: `index.template.html`,
-    }),
+    new HtmlWebpackPlugin({template: `index.template.html`, inject: `body`}),
+    new MiniCssExtractPlugin({filename: `[name].bundle.css`, chunkFilename: `[id].css`}),
   ],
-  devtool: false,
+  devtool: SOURCE_MAP,
   devServer: {
     compress: true,
     inline: !!HOT,
     hot: !!HOT,
-    port: 8088,
+    port: 8001,
     publicPath: `/`,
     stats,
   },
   performance: {hints: false},
   stats,
-  // resolveLoader: {
-  //   root: path.join(__dirname, `node_modules`),
-  // },
 };
 
 if (HOT) {
