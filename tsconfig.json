@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": false,
+    "checkJs": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "lib": ["es2017", "dom"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "strictNullChecks": false,
+    "target": "es6",
+    "typeRoots": [
+      "./node_modules/@types",
+    ],
+  },
+  "include": [
+    "./src"
+  ]
+}

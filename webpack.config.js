@@ -65,6 +65,17 @@ const webpackConfig = {
           },
         ],
       },
+      {
+        test: /\/controller\.js$/,
+        issuer: /\/index\.js$/,
+        include: __dirname,
+        use: [
+          {
+            loader: `panel/hot/controller-loader`,
+            options: {hot: !!HOT},
+          },
+        ],
+      },
     ],
   },
   plugins: [
