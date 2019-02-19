@@ -1,5 +1,6 @@
 import {Component} from 'panel';
 
+// @ts-ignore
 import template from './index.jade';
 import Controller from './controller';
 import './index.styl';
