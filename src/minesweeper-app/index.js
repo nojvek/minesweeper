@@ -13,6 +13,7 @@ export default class MineSweeperApp extends Component {
 
   constructor() {
     super();
+    // @ts-ignore
     this.controller = new Controller({store: this});
     this.setConfig(`defaultState`, this.controller.defaultState);
   }
