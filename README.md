@@ -1,2 +1,2 @@
 # minesweeper
-Simple minesweeper game built in panel
+Simple minesweeper game built with Preact
